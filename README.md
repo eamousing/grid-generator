@@ -64,7 +64,7 @@ The configuration file should include the following fields:
 - **lon_spacing** and **lat_spacing**: Spacing intervals for grid points
 - **lon_points** and **lat_points**: Number of points in longitude and latitude directions
 - **country_code_type**: Type of country codes used (*currently supports "ISO3"*)
-- **country_code*s*: List of country codes to include in the grid
+- **country_codes**: List of country codes to include in the grid
 
 ## Acknowledgments
 
