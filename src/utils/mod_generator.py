@@ -1,4 +1,5 @@
 import geopandas as gpd
+import shapely.validation
 import xarray as xr
 import numpy as np
 import shapely
@@ -57,6 +58,7 @@ def make_gridded_country_masks(config):
     ):
         mask = np.zeros((lat_points, lon_points))
         country_geom = country.geometry
+        country_geom = shapely.validation.make_valid(country_geom)
 
         for i, lon_val in enumerate(lon):
             for j, lat_val in enumerate(lat):
