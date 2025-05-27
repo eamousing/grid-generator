@@ -74,7 +74,7 @@ def make_gridded_country_masks(config):
         # Add mask to dataset
         iso_code = country["ISO3_CODE"]
         long_name = country["NAME_ENGL"]
-        ds[iso_code] = (("lat", "lon"), mask)
+        ds[iso_code] = (("latitude", "longitude"), mask)
         ds[iso_code].attrs["long_name"] = long_name
 
     # Validate combined mask values
@@ -89,7 +89,7 @@ def make_gridded_country_masks(config):
     combined_mask[np.isclose(combined_mask, 1, atol=tolerance)] = 1
 
     # Add combined mask
-    ds["ALL_COUNTRIES"] = (("lat", "lon"), combined_mask)
+    ds["ALL_COUNTRIES"] = (("latitude", "longitude"), combined_mask)
     ds["ALL_COUNTRIES"].attrs["description"] = "Combined mask of all included countries"
 
     # Add configuration name
