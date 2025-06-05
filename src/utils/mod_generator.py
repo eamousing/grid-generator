@@ -95,5 +95,9 @@ def make_gridded_country_masks(config):
     # Add configuration name
     ds.attrs["config_name"] = config["config_name"]
 
+    # Define compression
+    compression = {"zlib": True, "complevel": 4}
+    encoding = {var: compression for var in ds.data_vars}
+
     # Write to NetCDF4
-    ds.to_netcdf("country_masks.nc")
+    ds.to_netcdf("country_masks.nc", encoding=encoding)
